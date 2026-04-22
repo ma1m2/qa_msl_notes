@@ -1,7 +1,7 @@
 package msl.qa;
 
+import msl.qa.db.NoteRepository;
 import msl.qa.db.UserRepository;
-import msl.qa.domain.User;
 import msl.qa.service.Session;
 import msl.qa.ui.LoginUiComponent;
 import msl.qa.ui.MainUiComponent;
@@ -12,7 +12,7 @@ public class Main {
     try {
       new UiContainer(
               new LoginUiComponent(new UserRepository.MockUserRepository()),
-              new MainUiComponent()
+              new MainUiComponent(new NoteRepository.MockNoteRepository())
       ).render(new Session.EmptySession());
 
     } catch (Exception e) {

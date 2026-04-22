@@ -9,6 +9,10 @@ public class Note {
     this.text = text;
   }
 
+  public String username() {
+    return username;
+  }
+
   @Override
   public String toString() {
     return text;
