@@ -1,5 +1,10 @@
 plugins {
     id 'java'
+    id 'application'  // Добавьте эту строку
+}
+
+application {
+    mainClass = 'Main'  // Укажите ваш главный класс (без .java)
 }
 
 group = 'msl.qa'
@@ -10,8 +15,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    //testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 }
 
 test {
