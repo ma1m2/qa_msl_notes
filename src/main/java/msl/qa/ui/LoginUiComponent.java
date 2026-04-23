@@ -2,35 +2,39 @@ package msl.qa.ui;
 
 import msl.qa.db.UserRepository;
 import msl.qa.domain.User;
+import msl.qa.service.PasswordEncoder;
 import msl.qa.service.Session;
 import msl.qa.service.UserSession;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Optional;
 
 public class LoginUiComponent implements UiComponent {
 
-  private final UserRepository _userRepo;
+  private final UserRepository userRepo;
+  private final PasswordEncoder passwordEncoder;
 
-  public LoginUiComponent(UserRepository _userRepo) {
-    this._userRepo = _userRepo;
+  public LoginUiComponent(UserRepository userRepo, PasswordEncoder passwordEncoder) {
+    this.userRepo = userRepo;
+    this.passwordEncoder = passwordEncoder;
   }
 
   @Override
-  public Session render(Session session) {
+  public Session render(Session session) throws IOException {
     final String username = JOptionPane.showInputDialog("Enter username");
     final String password = JOptionPane.showInputDialog("Enter password");
     System.out.println("### username: " + username);
     System.out.println("### password: " + password);
 
-    Optional<User> optionalUser = _userRepo.findByUsername(username);
+    Optional<User> optionalUser = userRepo.findByUsername(username);
     if (optionalUser.isEmpty()) {
       showError();
       return render(session);
     }
 
     User fromRepo = optionalUser.get();
-    if(!fromRepo.isPasswordValid(password)){
+    if(!fromRepo.isPasswordValid(passwordEncoder.encode(password))){
       showError();
       return render(session);
     }

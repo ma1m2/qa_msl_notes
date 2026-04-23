@@ -2,11 +2,13 @@ package msl.qa.db;
 
 import msl.qa.domain.User;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Optional;
 
 public interface UserRepository {
 
-  Optional<User> findByUsername(String username);
+  Optional<User> findByUsername(String username) throws IOException;
 
   class MockUserRepository implements UserRepository {
     @Override

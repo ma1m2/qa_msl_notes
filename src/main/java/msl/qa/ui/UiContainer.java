@@ -2,6 +2,8 @@ package msl.qa.ui;
 
 import msl.qa.service.Session;
 
+import java.io.IOException;
+
 public class UiContainer implements UiComponent {
 
   private final UiComponent[] comps;
@@ -11,7 +13,7 @@ public class UiContainer implements UiComponent {
   }
 
   @Override
-  public Session render(Session session) {
+  public Session render(Session session) throws IOException {
     Session currentSession = session;
 
     for (UiComponent comp : comps) {
