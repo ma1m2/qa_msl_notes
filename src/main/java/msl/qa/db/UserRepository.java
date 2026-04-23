@@ -2,7 +2,6 @@ package msl.qa.db;
 
 import msl.qa.domain.User;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 

@@ -2,7 +2,6 @@ package msl.qa;
 
 import msl.qa.db.FileUserRepository;
 import msl.qa.db.NoteRepository;
-import msl.qa.db.UserRepository;
 import msl.qa.service.Base64PasswordEncoder;
 import msl.qa.service.Session;
 import msl.qa.ui.LoginUiComponent;
