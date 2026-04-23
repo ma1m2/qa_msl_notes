@@ -21,7 +21,7 @@ public class LoginUiComponent implements UiComponent {
   }
 
   @Override
-  public Session render(Session session) throws IOException {
+  public Session render(Session session){
     final String username = JOptionPane.showInputDialog("Enter username");
     final String password = JOptionPane.showInputDialog("Enter password");
     System.out.println("### username: " + username);

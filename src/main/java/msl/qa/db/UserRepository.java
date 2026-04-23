@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface UserRepository {
 
-  Optional<User> findByUsername(String username) throws IOException;
+  Optional<User> findByUsername(String username);
 
   class MockUserRepository implements UserRepository {
     @Override
